@@ -9,16 +9,35 @@
     
 }
 
-.from-content input {
+.from-content .form-control {
     display: inline-block;
     margin-left: 10px;
     margin-top: 20px;
     min-width: 165px;
 }
 
-.from-content select{
+.from-content .form-select{
     display: inline-block;
     margin-top: 20px;
     margin-left: 10px;
     min-width: 165px;
+}
+
+.pet-container{
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    border:1px solid black;
+    margin: 2px;
+    padding: 5px;
+}
+
+.pet-container label{
+    display: flex;
+    margin-right: 4px;
+    margin-left: 10px;
+}
+
+.pet-container p{
+    margin-bottom: 0;
 }

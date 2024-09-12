@@ -36,9 +36,12 @@ let pets = [];
 // pets.push(cat,dog)
 
 let cat = new Pet('michi');
-
+cat.age=5;
+cat.gender='M';
 
 let dog = new Pet('black');
+dog.age = 9;
+dog.gender='F';
 
 pets.push(cat,dog)
 
@@ -67,9 +70,39 @@ function Restister(){
     pet.type = document.getElementById('typeSer').value
 
 
-    pets.push(pet)
 
+    if(validationNotNull(pet)){
+        pets.push(pet)
+        displaycards()
+        displayRows()
+    }
+    else{
+        alert("Fill the information")
+    }
     
+}
 
-    displayPets(pets)
+function validationNotNull(pet){
+    let response = true;
+
+    if(pet.name == "" || pet.age == "" ){
+        response = false;
+    }
+
+    return response;
+}
+
+function displayRows(){
+    const table = document.getElementById('tablePets');
+    table.innerHTML='';
+
+    for(let i=0;i<pets.length;i++){
+        table.innerHTML += `
+        <tr>
+            <td>${pets[i].name}</td>
+            <td>${pets[i].age}</td>
+            <td>${pets[i].gender}</td>
+        </tr>
+        `
+    }
 }
