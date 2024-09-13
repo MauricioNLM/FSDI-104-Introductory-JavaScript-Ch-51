@@ -38,10 +38,12 @@ let pets = [];
 let cat = new Pet('michi');
 cat.age=5;
 cat.gender='M';
+cat.service='Grooming';
 
 let dog = new Pet('black');
 dog.age = 9;
 dog.gender='F';
+dog.service='Nails';
 
 pets.push(cat,dog)
 
@@ -51,6 +53,7 @@ function displayPets(array)
     for(let i=0;i<array.length;i++){
         console.log(array[i].name)
     }
+    document.getElementById('totalPets').innerHTML = array.length;
 }
 
 
@@ -73,13 +76,22 @@ function Restister(){
 
     if(validationNotNull(pet)){
         pets.push(pet)
-        displaycards()
+        //displaycards()
         displayRows()
+        displayPets(pets)
     }
     else{
         alert("Fill the information")
     }
     
+}
+
+function deletePet(petId){
+    debugger
+    document.getElementById(petId).remove()
+    console.log("Delete the pet "+petId.split('-')[1])
+    pets.splice(petId.split('-')[0],1)
+    displayPets(pets)
 }
 
 function validationNotNull(pet){
@@ -98,11 +110,34 @@ function displayRows(){
 
     for(let i=0;i<pets.length;i++){
         table.innerHTML += `
-        <tr>
+        <tr id="${i}-${pets[i].name}">
             <td>${pets[i].name}</td>
             <td>${pets[i].age}</td>
             <td>${pets[i].gender}</td>
+            <td>${pets[i].service}</td>
+            <td><button class="btn btn-success" onclick="deletePet('${i}-${pets[i].name}')">Delte</button></td>
         </tr>
         `
     }
+}
+
+function search(){
+    nameSearch = document.getElementById('inpSearch').value
+    let petSerch = null;
+    let id = null;
+    for(let i=0;i<pets.length;i++){
+        debugger
+        if(pets[i].name.toLowerCase() == nameSearch.toLowerCase()){
+            petSerch =   pets[i];
+            id = i;
+            break;   
+        }
+    }
+
+
+    if(petSerch){
+        displayRows();
+        document.getElementById(`${id}-${petSerch.name}`).classList.add('lookup')
+    }
+    
 }

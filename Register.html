@@ -41,8 +41,9 @@
             <div class="mb-3">
                 <label for="servicePet">Service</label>
                 <select id="servicePet" class="form-select">
-                    <option value="shower">Shower</option>
-                    <option value="stetic">Stetic</option>
+                    <option value="grooming">Grooming</option>
+                    <option value="vaccines">Vaccines</option>
+                    <option value="nails">Nails</option>
                 </select>
     
             </div class="mb-3">
@@ -56,23 +57,33 @@
             </div>
             <button onclick="Restister()" class="btn btn-dark">Register</button>
         </div>
-        <div id="displayCardsPet">
+        <h2><span id="totalPets"></span></h2>
+        <!-- <div id="displayCardsPet">
 
+        </div> -->
+        <div class="container-table">
+            <div>
+                <input id="inpSearch" type="search" class="form-control"/>
+                <button onclick="search()">Search</button>
+            </div>
+            <div class="mb-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Service</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablePets">
+    
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                    </tr>
-                </thead>
-                <tbody id="tablePets">
-
-                </tbody>
-            </table>
-        </div>
+        
     </main>
     <script src="./script/Display.js"></script>
     <script src="./script/register.js"></script>

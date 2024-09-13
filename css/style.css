@@ -32,3 +32,14 @@ header img{
     grid-template-columns: repeat(2,1fr);
     padding: 20px;
 }
+
+body{
+    background-image: url('../file/img/fontWeb.png');
+}
+
+article{
+    background-color: lightsteelblue;
+    margin: 3px;
+    border-radius: 5px solid black;
+    padding: 1%;
+}
